@@ -1,0 +1,36 @@
+{
+  "name": "beholder/behold-module",
+  "type": "beholder-module",
+  "description": "Channel stats monitoring module for beholder/beholder",
+  "keywords": ["irc"],
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "nj",
+      "email": "nj@justconflux.net",
+      "homepage": "https://justconflux.net",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "beholder/beholder-common": "*@dev",
+    "beholder/behold-common": "*@dev",
+    "ext-pdo": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../beholder-common/"
+    },
+    {
+      "type": "path",
+      "url": "../beholder-behold-common/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Beholder\\Modules\\": "src"
+    }
+  }
+}
