@@ -56,8 +56,7 @@ class IgnoreListManagement
             return;
         }
 
-        // TODO: These won't work quite right, because it checks context AND global by default
-        if ($this->ignoreList->isIgnoredNick($context, $nick)) {
+        if ($this->ignoreList->isIgnoredNick($context, $nick, true)) {
             $commandSource->reply("I'm already ignoring $nick {$context->locative()}");
             return;
         }
@@ -82,8 +81,7 @@ class IgnoreListManagement
             return;
         }
 
-        // TODO: These won't work quite right, because it checks context AND global by default
-        if (! $this->ignoreList->isIgnoredNick($context, $nick)) {
+        if (! $this->ignoreList->isIgnoredNick($context, $nick, true)) {
             $commandSource->reply("I wasn't ignoring $nick {$context->locative()} in the first place");
             return;
         }

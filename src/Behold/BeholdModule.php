@@ -125,14 +125,14 @@ class BeholdModule implements BeholderModule, GeneratesLogs, ManagesChannels, Ma
         return $this->ignoreNicks[$context->normalize()];
     }
 
-    public function isIgnoredNick(Context $context, Nick $nick): bool
+    public function isIgnoredNick(Context $context, Nick $nick, bool $strictContext = false): bool
     {
         // Is the nick ignored in the given context?
         if ($nick->isIn($this->ignoreNicks[$context->normalize()] ?? [])) {
             return true;
         }
 
-        if ($context->isGlobal()) {
+        if ($context->isGlobal() || $strictContext) {
             // The given context is global, so no need to check again
             return false;
         }

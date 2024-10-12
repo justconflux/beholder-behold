@@ -16,5 +16,5 @@ interface ManagesIgnoreList
      */
     public function getIgnoredNicks(Context $context): array;
 
-    public function isIgnoredNick(Context $context, Nick $nick): bool;
+    public function isIgnoredNick(Context $context, Nick $nick, bool $strictContext = false): bool;
 }
